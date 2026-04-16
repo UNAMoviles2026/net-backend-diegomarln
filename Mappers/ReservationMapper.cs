@@ -1,4 +1,3 @@
-using reservations_api.DTOs.Entities;
 using reservations_api.DTOs.Requests;
 using reservations_api.DTOs.Responses;
 using reservations_api.Models.Entities;

@@ -20,14 +20,16 @@ public class ReservationRepository : IReservationRepository
         return reservation;
     }
 
-    public async Task<Reservation> DeleteAsync(Guid ui)
+    public async Task<Reservation?> DeleteAsync(Guid id)
     {
         var reservation = await _context.Reservations
-            .FirstOrDefaultAsync(reservation => reservation.Id == ui);
+        .Include(r => r.Classroom)
+        .FirstOrDefaultAsync(r => r.Id == id);           
+           
 
         if (reservation is null)
         {
-            throw new Exception("Reservation not found");
+            return null;
         }
 
         _context.Reservations.Remove(reservation);

@@ -1,4 +1,4 @@
-namespace reservations_api.DTOs.Entities;
+namespace reservations_api.DTOs.Responses;
 
 public class ReservationResponse
 {

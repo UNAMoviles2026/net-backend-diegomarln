@@ -1,4 +1,3 @@
-using reservations_api.DTOs.Entities;
 using reservations_api.DTOs.Requests;
 using reservations_api.DTOs.Responses;
 using reservations_api.Mappers;
@@ -10,7 +9,7 @@ public class ReservationService : IReservationService
 {
     private readonly IReservationRepository _reservationRepository;
 
-    public ReservationService(IReservationRepository reservationRepository, IClassroomRepository classroomRepository)
+    public ReservationService(IReservationRepository reservationRepository)
     {
         _reservationRepository = reservationRepository;        
     }
@@ -20,8 +19,14 @@ public class ReservationService : IReservationService
         throw new NotImplementedException();
     }
 
-    public Task<ReservationResponse> DeleteAsync(Guid id)
+    public async Task<ReservationResponse?> DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var reservation = await _reservationRepository.DeleteAsync(id);
+        if (reservation is null)
+        {
+            return null;
+        }
+
+        return ReservationMapper.toResponse(reservation);
     }
 }
