@@ -57,9 +57,12 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 [sourceFiles]
 Controllers/ClassroomsController.cs
 Data/AppDbContext.cs
-DTOs/
- Requests/CreateClassroomRequest.cs
- Responses/ClassroomResponse.cs
+DTOs/Requests/
+ CreateClassroomRequest.cs
+ CreateReservationRequest.cs
+DTOs/Responses/
+ ClassroomResponse.cs
+ ReservationResponse.cs
 Mappers/ClassroomMapper.cs
 Migrations/
  20260327024925_Init.cs
