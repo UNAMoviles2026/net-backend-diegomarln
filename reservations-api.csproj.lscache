@@ -55,7 +55,9 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 /warnaserror+:NU1605,SYSLIB0011
 
 [sourceFiles]
-Controllers/ClassroomsController.cs
+Controllers/
+ ClassroomsController.cs
+ ReservationsController.cs
 Data/AppDbContext.cs
 DTOs/Requests/
  CreateClassroomRequest.cs
@@ -83,9 +85,13 @@ Program.cs
 Repositories/
  ClassroomRepository.cs
  IClassroomRepository.cs
+ IReservationRepository.cs
+ ReservationRepository.cs
 Services/
  ClassroomService.cs
  IClassroomService.cs
+ IReservationService.cs
+ ReservationService.cs
 
 [metadataReferences]
 <DOTNET>/packs/Microsoft.AspNetCore.App.Ref/8.0.26/ref/net8.0/
