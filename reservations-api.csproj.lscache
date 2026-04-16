@@ -63,7 +63,9 @@ DTOs/Requests/
 DTOs/Responses/
  ClassroomResponse.cs
  ReservationResponse.cs
-Mappers/ClassroomMapper.cs
+Mappers/
+ ClassroomMapper.cs
+ ReservationMapper.cs
 Migrations/
  20260327024925_Init.cs
  20260327024925_Init.Designer.cs
