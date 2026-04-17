@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using reservations_api.Data;
+using reservations_api.DTOs.Responses;
 using reservations_api.Models.Entities;
 
 namespace reservations_api.Repositories;
@@ -35,5 +36,13 @@ public class ReservationRepository : IReservationRepository
         _context.Reservations.Remove(reservation);
         await _context.SaveChangesAsync();
         return reservation;
+    }
+
+    public async Task<List<Reservation>> GetByDateAsync(DateOnly date)
+    {
+        return await _context.Reservations
+        .Include(r => r.Classroom)
+        .Where(r => r.Date == date)
+        .ToListAsync();
     }
 }

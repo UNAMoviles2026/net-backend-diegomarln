@@ -6,4 +6,6 @@ public interface IReservationRepository
 {          
     Task<Reservation> AddAsync(Reservation reservation);    
     Task<Reservation?> DeleteAsync(Guid id);
+
+    Task<List<Reservation>> GetByDateAsync(DateOnly date);
 }
