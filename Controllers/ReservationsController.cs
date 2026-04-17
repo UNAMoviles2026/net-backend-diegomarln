@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using reservations_api.DTOs.Requests;
 using reservations_api.Services;
 
 namespace reservations_api.Controllers;
@@ -15,8 +14,8 @@ public class ReservationsController : ControllerBase
         _reservationService = reservationService;
     }
 
-    [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> DeleteAsync(Guid id)
+    [HttpDelete("{id:guid}")]    
+    public async Task<IActionResult> Delete(Guid id)
     {
         var reservation = await _reservationService.DeleteAsync(id);
         if (reservation is null)
@@ -24,5 +23,12 @@ public class ReservationsController : ControllerBase
             return NotFound();
         }
         return NoContent();
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetByDate([FromQuery] DateOnly date)
+    {
+        var reservations = await _reservationService.GetByDateAsync(date);
+        return Ok(reservations);
     }
 }

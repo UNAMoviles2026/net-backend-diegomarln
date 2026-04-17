@@ -29,4 +29,10 @@ public class ReservationService : IReservationService
 
         return ReservationMapper.toResponse(reservation);
     }
+
+    public async Task<List<ReservationResponse>> GetByDateAsync(DateOnly date)
+    {
+        var reservations = await _reservationRepository.GetByDateAsync(date);
+        return reservations.Select(r => ReservationMapper.toResponse(r)).ToList();
+    }
 }
